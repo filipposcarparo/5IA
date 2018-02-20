@@ -6,63 +6,77 @@ import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.widget.Toast;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity {
 
     ThreadLocalRandom random;
-    FragmentFactory ff;
-    float x1,x2;
     final static float MIN_DISTANCE = 150.0f;
+    private float[] coordDOWN, coordUP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         random = ThreadLocalRandom.current();
-        ff = new FragmentFactory();
         FragmentManager fm = getFragmentManager();
-        Fragment nextFragment = ff.getFragment(random.nextInt(1,6));
+        Fragment nextFragment = DiceFace.newInstance(random.nextInt(1, 6));
         fm.beginTransaction()
-                .replace(R.id.frame,nextFragment)
+                .replace(R.id.frame, nextFragment)
                 .commit();
+        coordDOWN = new float[2];
+        coordUP = new float[2];
+
     }
 
     public boolean onTouchEvent(MotionEvent event) {
-
-        switch(event.getAction()) {
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                x1 = event.getX();
+                coordDOWN[0] = event.getX();
+                coordDOWN[1] = event.getY();
                 break;
             case MotionEvent.ACTION_UP:
-                x2 = event.getX();
-                float deltaX = x2 - x1;
+                coordUP[0] = event.getX();
+                coordUP[1] = event.getY();
+                float deltaY = coordDOWN[1] - coordUP[1];
+                float deltaX = coordDOWN[0] - coordUP[0];
 
-                if (Math.abs(deltaX) > MIN_DISTANCE) {
-                    // Left to Right swipe action
-                    if (x2 > x1) {
-                        changeFragment(R.animator.slide_left,R.animator.slide_right);
+                if (Math.abs(deltaY) > MIN_DISTANCE) {
+                    // Bottom to Top swipe action
+                    if (coordUP[1] > coordDOWN[1]) {
+                        changeFragment(R.animator.slide_in_bottom, R.animator.slide_out_top);
                     }
-                    // Right to left swipe action
+                    // Top to Bottom action
                     else {
-
+                        changeFragment(R.animator.slide_in_top, R.animator.slide_out_bottom);
                     }
-                }
-                else {
-
+                } else {
+                    if (Math.abs(deltaX) > MIN_DISTANCE) {
+                        //Left to Right swipe action
+                        if (coordUP[0] > coordDOWN[0]) {
+                            changeFragment(R.animator.slide_in_left, R.animator.slide_out_right);
+                        }
+                        // Right to Left action
+                        else {
+                            changeFragment(R.animator.slide_in_right, R.animator.slide_out_left);
+                        }
+                    }else{
+                        Toast.makeText(this, "TAP",Toast.LENGTH_SHORT).show();
+                    }
                 }
                 break;
         }
         return super.onTouchEvent(event);
     }
 
-    private void changeFragment(int animIn, int animOut){
+    private void changeFragment(int animIn, int animOut) {
         FragmentManager fm = getFragmentManager();
-        Fragment nextFragment = ff.getFragment(random.nextInt(1,6));
+        Fragment nextFragment = DiceFace.newInstance(random.nextInt(1, 7));
         fm.beginTransaction()
-                .replace(R.id.frame,nextFragment)
-                .setCustomAnimations(animIn,animOut)
+                .setCustomAnimations(animIn, animOut)
+                .replace(R.id.frame, nextFragment)
                 .commit();
     }
 }

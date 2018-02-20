@@ -1,49 +1,49 @@
 package com.pag.tic_tac_toe;
-import android.graphics.drawable.Drawable;
 
+import android.content.Context;
 import java.util.Observable;
-import java.util.Random;
 
 public class Board extends Observable {
 
     private final int size;
     private int turn;
     private Player p1, p2;
-    private int[][] board;
+    private Player[][] board;
 
     //constructor for pvp
-    Board(int size,String p1Name, String p2Name) {
+    Board(Context context, int size, String p1Name, String p2Name) {
         this.size = size;
-        p1 = Player.PLAYER_ONE;
-        p1.setName(p1Name);
-        p2 = Player.PLAYER_TWO;
-        p2.setName(p2Name);
-        board = new int[this.size][this.size];
+        p1 = new Player(context.getDrawable(R.drawable.cross), p1Name);
+        p2 = new Player(context.getDrawable(R.drawable.circle),p2Name);
+        board = new Player[this.size][this.size];
         turn = 0;
     }
 
     //constructor for pve
-    Board(int size){
+    Board(int size) {
         this.size = size;
-        board = new int[this.size][this.size];
+        board = new Player[this.size][this.size];
     }
 
-    int[][] getBoard() {
+    private void reset(){
+        board = new Player[size][size];
+    }
+
+    Player[][] getBoard() {
         return board;
     }
 
-    void updateBoard(int[] move, int drawableId){
+    void updateBoard(int[] move, Player p) {
         int y = move[0];
         int x = move[1];
-        if (board[y][x] == 0) {
-            board[y][x] = drawableId;
+        if (board[y][x] == null) {
+            board[y][x] = p;
             turn++;
             setChanged();
             notifyObservers();
             clearChanged();
         }
     }
-
 
     int getTurn() {
         return turn;
