@@ -47,16 +47,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.button_start:
                 Intent i = new Intent(MainActivity.this, Game.class);
-                Bundle extras = new Bundle();
-                if (isPvp) {
-                    extras.putBoolean("isPvp", isPvp);
-                    extras.putString("p1Name", ((EditText) findViewById(R.id.txt_p1)).getText().toString());
-                    extras.putString("p2Name", ((EditText) findViewById(R.id.txt_p2)).getText().toString());
-                } else {
-                    extras.putBoolean("isPvp", isPvp);
-                    extras.putBoolean("isHeuristic", ((Spinner) findViewById(R.id.spinner_modes)).getSelectedItemPosition() == 1);
-                }
-                i.putExtras(extras);
+                String p1name = isPvp ? ((EditText) findViewById(R.id.txt_p1)).getText().toString().trim() : "giocatore";
+                String p2name = isPvp ? ((EditText) findViewById(R.id.txt_p2)).getText().toString().trim() : "ai-chan";
+                Player p1 = new Player(R.drawable.cross, p1name, false);
+                Player p2 = new Player(R.drawable.circle, p2name, !isPvp);
+                i.putExtra("isPvp", isPvp);
+                i.putExtra("player1", p1);
+                i.putExtra("player2", p2);
                 startActivity(i);
                 break;
         }
