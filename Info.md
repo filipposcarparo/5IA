@@ -8,3 +8,5 @@
 	* aggiornamento del readme 29/11/2017
 * Tic Tac Toe (Android) 08/02/2018
 	* creazione del progetto in data 07/02/2018
+* Dice simulator (Android) 22/02/2018
+	* creazione del progetto in data 21/02/2018
