@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Flat Dice</string>
+    <string name="audio_error">Ops, qualcosa è andato storto…tocca lo schermo e riprova</string>
+    <string name="audio_guide">Pronuncia la parola: Dado, Lancia o Tira per poter girare il dado vocalmente!</string>
+    <string name="title">Benvenuto nell\'applicazione Flat Dice! \nScrolla lo schermo per girare il tuo dado virtuale, mentre tieni premuto lo schermo per uscire dall\'applicazione!\n</string>
+</resources>
