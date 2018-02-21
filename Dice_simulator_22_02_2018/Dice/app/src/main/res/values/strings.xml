@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Dice simulator</string>
+    <string name="first_question">How many faces is the dice going to have?</string>
+    <string name="btn_start">Start</string>
+    <string name="simulator_title">The die is drawn</string>
+    <string name="txt_finish">Double tap to finish</string>
+</resources>
