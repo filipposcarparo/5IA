@@ -13,4 +13,5 @@
         <item>Table Lookup</item>
         <item>Euristico</item>
     </string-array>
+    <string name="name_placeholder">Punteggio</string>
 </resources>

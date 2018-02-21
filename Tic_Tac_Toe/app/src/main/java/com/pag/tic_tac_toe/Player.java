@@ -43,6 +43,12 @@ public class Player implements Serializable {
         return name;
     }
 
+    public int getScore(){return score;}
+
+    public boolean equals(Player other){
+        return this.cs == other.getCellState();
+    }
+
     int[] doMove(Board board) {
         return nextRandomMove(board);
     }
@@ -56,10 +62,6 @@ public class Player implements Serializable {
             if (cells[move[0]][move[1]] == CellState.EMPTY) return move;
         }
         return new int[2];
-    }
-
-    public boolean equals(Player other){
-        return this.iconID == other.getIconId() && this.name.equals(getName());
     }
 
     //TODO implement heuristic method to calculate next best move

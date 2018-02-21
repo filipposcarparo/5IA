@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -32,21 +33,63 @@ public class Game extends AppCompatActivity implements Observer {
         board.addObserver(this);
 
         grid = findViewById(R.id.tictactoe);
+
+        updatePlayerData(p1);
+        updatePlayerData(p2);
+        updateTurn();
     }
 
     @Override
     public void update(Observable observable, Object o) {
-        Object[] data = (Object[]) o;
-        int[] cellToUpdate = (int[]) data[0];
-        Player requestingUpdate = (Player) data[1];
-        TableRow tr = (TableRow) grid.getChildAt(cellToUpdate[0]);
-        ImageView v = (tr.getChildAt(cellToUpdate[1]).findViewById(R.id.icon));
-        v.setImageDrawable(getDrawable(board.getCurrentPlayer().getIconId()));
-        if (board.check()) {
-            requestingUpdate.victory();
-        } else {
-            board.gotoNextPlayer();
+        if (o == null) {
+            for(int i = 0; i < size; i++){
+                TableRow tr = (TableRow) grid.getChildAt(i);
+                for(int j = 0; j < size; j++){
+                    ImageView v = (tr.getChildAt(j).findViewById(R.id.icon));
+                    v.setImageResource(android.R.color.transparent);
+                }
+            }
+        }else{
+            Object[] data = (Object[]) o;
+            int[] cellToUpdate = (int[]) data[0];
+            Player requestingUpdate = (Player) data[1];
+            TableRow tr = (TableRow) grid.getChildAt(cellToUpdate[0]);
+            ImageView v = (tr.getChildAt(cellToUpdate[1]).findViewById(R.id.icon));
+            v.setImageDrawable(getDrawable(board.getCurrentPlayer().getIconId()));
+            if (board.check()) {
+                requestingUpdate.victory();
+                updatePlayerData(requestingUpdate);
+                board.resetBoard();
+            } else {
+                board.gotoNextPlayer();
+                updateTurn();
+            }
         }
+    }
+
+    private void updatePlayerData(Player p) {
+        View v = findViewById(getIdByPlayer(p));
+        ((TextView) v.findViewById(R.id.player_name)).setText(p.getName());
+        ((TextView) v.findViewById(R.id.player_score)).setText(Integer.toString(p.getScore()));
+    }
+
+    private void updateTurn() {
+        View p1 = findViewById(R.id.p1);
+        View p2 = findViewById(R.id.p2);
+        if(board.getCurrentPlayer().getCellState() == CellState.X){
+            ((ImageView) p1.findViewById(R.id.player_turn)).setImageDrawable(getDrawable(R.drawable.turn));
+            ((ImageView) p2.findViewById(R.id.player_turn)).setImageResource(android.R.color.transparent);
+        }else{
+            ((ImageView) p2.findViewById(R.id.player_turn)).setImageDrawable(getDrawable(R.drawable.turn));
+            ((ImageView) p1.findViewById(R.id.player_turn)).setImageResource(android.R.color.transparent);
+        }
+    }
+
+    private int getIdByPlayer(Player p) {
+        int id;
+        if (p.getCellState() == CellState.X) id = R.id.p1;
+        else id = R.id.p2;
+        return id;
     }
 
     public void onClick(View v) {
