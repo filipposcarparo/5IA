@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DadoFlat</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="frag_start_txt">Fai uno swipe per cominciare a tirare il dado</string>
+</resources>
