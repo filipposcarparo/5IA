@@ -12,3 +12,5 @@ Il campo da gioco risulta costituito da 9 bottoni e da due TextView che riportan
 La classe GiocoTris implementa View.OnClickListener dal momento che contiene il metodo onClick gestore della pressione di ciascuno dei 9 bottoni.
 Le classi CampoTrisActivity e StatoTris implementano Observer mentre la classe GiocoTris estende Observable: ciò consente alla vista e allo stato della griglia di essere costantemente aggiornati in linea con l'andamento del gioco.
 Durante l'utilizzo dell'applicazione è possibile ruotare lo schermo mantenendo inalterato lo stato delle activity e potendo dunque continuare a giocare riprendendo dal punto in cui si aveva interrotto.
+
+22/2/2018 Aggiornamento codice
