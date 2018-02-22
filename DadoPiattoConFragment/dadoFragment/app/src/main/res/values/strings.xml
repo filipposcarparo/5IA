@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Dado Piatto</string>
+    <string name="titolo_app">DADO   PIATTO</string>
+    <string name="descrizione">Esegui uno swipe a sinistra o destra, verso l`alto o verso il basso per un nuovo risultato.</string>
+    <!--
+   <string name="frag1_header">Canto V</string>
+
+   <string name="frag1_txt">
+       Così discesi del cerchio primaio\ngiù nel secondo, che men loco cinghia, \ne tanto più dolor, che punge a guaio.
+   </string>
+   <string name="frag2_header">Canto V</string>
+   <string name="frag2_txt">
+       Amor, ch’a nullo amato amar perdona, \n mi prese del costui piacer sì forte,\nche, come vedi, ancor non m’abbandona.
+   </string> -->
+</resources>
