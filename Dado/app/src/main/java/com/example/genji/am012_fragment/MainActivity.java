@@ -161,6 +161,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     @Override
     public void onLongPress(MotionEvent motionEvent) {
         voice.stopListening();
+        voice.cancel();
         voice.destroy();
         finish();
     }
@@ -195,11 +196,13 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     protected void onPause() {
         super.onPause();
         voice.stopListening();
+        voice.cancel();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
+        voice.setRecognitionListener(this);
         startListening();
     }
 }
