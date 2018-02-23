@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/android,androidstudio
+# Created by https://www.gitignore.io/api/java,android,netbeans,androidstudio
 
 ### Android ###
 # Built application files
@@ -128,8 +128,6 @@ Thumbs.db
 # Legacy Eclipse project files
 .classpath
 .project
-.cproject
-.settings/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -162,5 +160,29 @@ fabric.properties
 
 !/gradle/wrapper/gradle-wrapper.jar
 
+### Java ###
+# Compiled class file
 
-# End of https://www.gitignore.io/api/android,androidstudio
+# Log file
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+
+# Package Files #
+*.jar
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+
+### NetBeans ###
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# End of https://www.gitignore.io/api/java,android,netbeans,androidstudio
