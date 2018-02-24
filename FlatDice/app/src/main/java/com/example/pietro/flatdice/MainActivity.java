@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         // portrait mode
         if(findViewById(android.R.id.content) != null){
-            MioFragment start = MioFragment.newInstance("0");
+            HomeFragment start = HomeFragment.newInstance("0");
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.cont,start);
             ft.commit();
