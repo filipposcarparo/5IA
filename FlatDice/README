@@ -1,0 +1,11 @@
+Busetto Alvise, 5IA
+
+
+FLAT DICE
+
+Il progetto rappresenta un dado piatto in cui ogni faccia è un'istanza di un fragment nominato "FlatDice".
+
+Si compone di un file "Main_Activity" contenente la gestione del touch e il relativo spostamento di fragment.
+Il file "FlatDice" rappresenta il fragment in cui viene generato il numero casuale del dado.
+
+I file XML delle animazioni sono 8, ciò in quanto è necessario un animazione di entrata ed uscita per ognuna delle quattro gestures.
