@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FlatDice</string>
+    <string name="welcomeMessage">Flat Dice</string>
+    <string name="copyright">Federico Doria © 2018</string>
+</resources>

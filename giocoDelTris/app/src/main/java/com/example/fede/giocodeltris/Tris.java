@@ -190,6 +190,39 @@ public class Tris extends AppCompatActivity {
         h = b8.getText().toString();
         i = b9.getText().toString();
 
+        if (a.equals(b) && b.equals(c) && a!="") {
+            Toast.makeText(Tris.this, "Ha vinto "+a, Toast.LENGTH_LONG).show();
+            fine = true;
+        }
+        else if (a.equals(e) && e.equals(i) && a!="") {
+            Toast.makeText(Tris.this, "Ha vinto "+a, Toast.LENGTH_LONG).show();
+            fine = true;
+        }
+        else if (a.equals(d) && d.equals(g) && a!="") {
+            Toast.makeText(Tris.this, "Ha vinto "+a, Toast.LENGTH_LONG).show();
+            fine = true;
+        }
+        else if (b.equals(e) && e.equals(h) && b!="") {
+            Toast.makeText(Tris.this, "Ha vinto "+b, Toast.LENGTH_LONG).show();
+            fine = true;
+        }
+        else if (c.equals(f) && f.equals(i) && c!="") {
+            Toast.makeText(Tris.this, "Ha vinto "+c, Toast.LENGTH_LONG).show();
+            fine = true;
+        }
+        else if (d.equals(e) && e.equals(f) && d!="") {
+            Toast.makeText(Tris.this, "Ha vinto "+d, Toast.LENGTH_LONG).show();
+            fine = true;
+        }
+        else if (g.equals(h) && h.equals(i) && g!="") {//il secondo era b
+            Toast.makeText(Tris.this, "Ha vinto "+g, Toast.LENGTH_LONG).show();
+            fine = true;
+        }
+        else if (g.equals(e) && e.equals(c) && g!="") {
+            Toast.makeText(Tris.this, "Ha vinto "+g, Toast.LENGTH_LONG).show();
+            fine = true;
+        }
+/*
         if (a.equals("X") && b.equals("X") && c.equals("X")) {
             Toast.makeText(Tris.this, "Ha vinto X", Toast.LENGTH_LONG).show();
             fine = true;
@@ -214,7 +247,7 @@ public class Tris extends AppCompatActivity {
             Toast.makeText(Tris.this, "Ha vinto X", Toast.LENGTH_LONG).show();
             fine = true;
         }
-        else if (g.equals("X") && b.equals("X") && i.equals("X")) {
+        else if (g.equals("X") && h.equals("X") && i.equals("X")) {//il secondo era b
             Toast.makeText(Tris.this, "Ha vinto X", Toast.LENGTH_LONG).show();
             fine = true;
         }
@@ -248,7 +281,7 @@ public class Tris extends AppCompatActivity {
             Toast.makeText(Tris.this, "Ha vinto O", Toast.LENGTH_LONG).show();
             fine = true;
         }
-        else if (g.equals("O") && b.equals("O") && i.equals("O")) {
+        else if (g.equals("O") && h.equals("O") && i.equals("O")) {
             Toast.makeText(Tris.this, "Ha vinto O", Toast.LENGTH_LONG).show();
             fine = true;
         }
@@ -256,6 +289,7 @@ public class Tris extends AppCompatActivity {
             Toast.makeText(Tris.this, "Ha vinto O", Toast.LENGTH_LONG).show();
             fine = true;
         }
+        */
         if (fine) {
             b1.setEnabled(false);
             b2.setEnabled(false);
