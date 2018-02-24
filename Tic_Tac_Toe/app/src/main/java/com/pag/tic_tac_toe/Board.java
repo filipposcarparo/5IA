@@ -8,6 +8,7 @@ public class Board extends Observable {
     private final int size;
     private Player p1, p2, current;
     private CellState[][] board;
+    private int turn;
 
     Board(int size, Player p1, Player p2) {
         this.size = size;
@@ -20,6 +21,7 @@ public class Board extends Observable {
         } else {
             current = (ThreadLocalRandom.current().nextBoolean()) ? p1 : p2;
         }
+        turn = 0;
     }
 
     CellState[][] getBoard() {
@@ -44,6 +46,7 @@ public class Board extends Observable {
         int x = move[1];
         if (board[y][x] == CellState.EMPTY) {
             board[y][x] = current.getCellState();
+            turn++;
             setChanged();
             notifyObservers(data);
         }
@@ -63,31 +66,35 @@ public class Board extends Observable {
 
     boolean check() {
         boolean isFinished = false;
-        for (int y = 0; y < size && !isFinished; y++) {
-            int x = 0;
-            while (x < 3 && board[y][x] == current.getCellState()) { //rows
-                x++;
-            }
-            isFinished = (x == 3);
-            x = 0;
-            while (x < 3 && board[x][y] == current.getCellState()) { //columns
-                x++;
-            }
-            isFinished = (x == 3) || isFinished;
-        }
-        if (isFinished) {
-            return isFinished;
-        }
         int dAdBs = 0;
         int dAsBd = 0;
-        for (int i = 0; i < 3; i++) {
-            if (board[i][i] == current.getCellState()) { //diagonal \
-                dAdBs++;
+        if(turn > 4) {
+            for (int y = 0; y < size && !isFinished; y++) {
+                int x = 0;
+                while (x < 3 && board[y][x] == current.getCellState()) { //rows
+                    x++;
+                }
+                isFinished = (x == 3);
+                x = 0;
+                while (x < 3 && board[x][y] == current.getCellState()) { //columns
+                    x++;
+                }
+                isFinished = (x == 3) || isFinished;
             }
-            if (board[i][3 - i - 1] == current.getCellState()) { //diagonal /
-                dAsBd++;
+            if (isFinished) {
+                return isFinished;
+            }
+            for (int i = 0; i < 3; i++) {
+                if (board[i][i] == current.getCellState()) { //diagonal \
+                    dAdBs++;
+                }
+                if (board[i][3 - i - 1] == current.getCellState()) { //diagonal /
+                    dAsBd++;
+                }
             }
         }
         return isFinished || dAdBs == 3 || dAsBd == 3;
     }
+
+    int getTurn(){return turn;}
 }

@@ -61,8 +61,12 @@ public class Game extends AppCompatActivity implements Observer {
                 updatePlayerData(requestingUpdate);
                 board.resetBoard();
             } else {
-                board.gotoNextPlayer();
-                updateTurn();
+                if(board.getTurn() == 9){
+                    board.resetBoard();
+                }else {
+                    board.gotoNextPlayer();
+                    updateTurn();
+                }
             }
         }
     }
