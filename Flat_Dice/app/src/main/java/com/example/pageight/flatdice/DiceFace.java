@@ -44,7 +44,7 @@ public class DiceFace extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_dice_face, container, false);
-        ((TextView)v.findViewById(R.id.faceNumber)).setText(mParam + "");
+        ((TextView)v.findViewById(R.id.faceNumber)).setText(Integer.toString(mParam));
         int imgid;
         switch (mParam){
             case 1:

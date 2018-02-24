@@ -1,5 +1,6 @@
 package com.example.pageight.flatdice;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -12,6 +13,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity {
 
+    boolean isDoubleTapping = false;
     ThreadLocalRandom random;
     final static float MIN_DISTANCE = 150.0f;
     private float[] coordDOWN, coordUP;
@@ -21,11 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         random = ThreadLocalRandom.current();
-        FragmentManager fm = getFragmentManager();
-        Fragment nextFragment = DiceFace.newInstance(random.nextInt(1, 6));
-        fm.beginTransaction()
-                .replace(R.id.frame, nextFragment)
-                .commit();
+        putStartFragment();
         coordDOWN = new float[2];
         coordUP = new float[2];
 
@@ -63,7 +61,12 @@ public class MainActivity extends AppCompatActivity {
                             changeFragment(R.animator.slide_in_right, R.animator.slide_out_left);
                         }
                     }else{
-                        Toast.makeText(this, "TAP",Toast.LENGTH_SHORT).show();
+                        if(isDoubleTapping){
+                            putStartFragment();
+                            isDoubleTapping = false;
+                        }else{
+                            isDoubleTapping = true;
+                        }
                     }
                 }
                 break;
@@ -76,6 +79,14 @@ public class MainActivity extends AppCompatActivity {
         Fragment nextFragment = DiceFace.newInstance(random.nextInt(1, 7));
         fm.beginTransaction()
                 .setCustomAnimations(animIn, animOut)
+                .replace(R.id.frame, nextFragment)
+                .commit();
+    }
+
+    private void putStartFragment(){
+        FragmentManager fm = getFragmentManager();
+        Fragment nextFragment = StartFragment.newInstance();
+        fm.beginTransaction()
                 .replace(R.id.frame, nextFragment)
                 .commit();
     }

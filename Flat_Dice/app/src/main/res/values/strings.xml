@@ -3,4 +3,8 @@
 
     <string name="placeholder_fragment">Placeholder</string>
     <string name="extracted_face">Faccia estratta</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_text">Dado Piatto! fai uno swipe in orizzontale o verticale per lanciare di nuovo il dado</string>
 </resources>
