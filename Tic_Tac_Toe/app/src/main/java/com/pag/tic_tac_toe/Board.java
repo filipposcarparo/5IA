@@ -21,7 +21,6 @@ public class Board extends Observable {
         } else {
             current = (ThreadLocalRandom.current().nextBoolean()) ? p1 : p2;
         }
-        turn = 0;
     }
 
     CellState[][] getBoard() {
@@ -34,6 +33,7 @@ public class Board extends Observable {
                 board[y][x] = CellState.EMPTY;
             }
         }
+        turn = 0;
         setChanged();
         notifyObservers();
     }

@@ -1,10 +1,10 @@
-# Pagotto Emanuele
+﻿# Pagotto Emanuele
 
 ## Risponditore
 In questo progetto si mira a simulare l'interazione con il cassiere di un negozio di videogiochi, che ci chiederà cosa vorremo comprare.
 
 La determinazione delle frasi da dire al client è fatta tramite un automa a stati finiti. >Risponditore.java
-L'automa è rappresentato da una matrice di adiacenza. >Node[][] 
+L'automa è rappresentato da una matrice di adiacenza `Node[][]`.
 Ogni nodo è identificato dal suo id univoco,che corrisponde al suo indice sull'asse y della matrice di adiacenza, e gli aggiornamenti avvengono in base alle risposte del client.
 
 Vengono inoltre salvate le cose acquistate nel carrello, e tenuto traccia del valore dell'ordine.
