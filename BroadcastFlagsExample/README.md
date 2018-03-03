@@ -8,6 +8,8 @@ Attraverso il progetto `AM003_Receiver`, è stato possibile implementare una ser
 
 
 I `RadioButton` hanno i seguenti flag: 
+
+
 | Flag | Descrizione | 
 | --- | --- | 
 | FLAG_CANCEL_CURRENT | se esiste già un pending intent, allora non ne genera uno nuovo | 
