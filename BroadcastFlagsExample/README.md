@@ -13,3 +13,5 @@ I `RadioButton` hanno i seguenti flag:
 * FLAG_NO_CREATE --> se non esiste il pending intent, al posto che crearlo ritorna `null`.
 * FLAG_ONE_SHOT --> Il pending intent può venir usato solo una volta.
 * FLAG_UPDATE_CURRENT --> se esiste già il pending intent, lo mantiene ma rimpiazzando i dati extra con il nuovo Intent.
+
+| git status | List all new or modified files |
