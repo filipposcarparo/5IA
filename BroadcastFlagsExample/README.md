@@ -14,4 +14,7 @@ I `RadioButton` hanno i seguenti flag:
 * FLAG_ONE_SHOT --> Il pending intent può venir usato solo una volta.
 * FLAG_UPDATE_CURRENT --> se esiste già il pending intent, lo mantiene ma rimpiazzando i dati extra con il nuovo Intent.
 
+
+| Command | Description |
+| --- | --- |
 | git status | List all new or modified files |
