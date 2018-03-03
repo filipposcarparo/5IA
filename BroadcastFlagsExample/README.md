@@ -8,13 +8,10 @@ Attraverso il progetto `AM003_Receiver`, è stato possibile implementare una ser
 
 
 I `RadioButton` hanno i seguenti flag:
-* FLAG_CANCEL_CURRENT --> se esiste già un pending intent, allora non ne genera uno nuovo.
-* FLAG_IMMUTABLE --> il pending intent creato non può venir modificato.
-* FLAG_NO_CREATE --> se non esiste il pending intent, al posto che crearlo ritorna `null`.
-* FLAG_ONE_SHOT --> Il pending intent può venir usato solo una volta.
-* FLAG_UPDATE_CURRENT --> se esiste già il pending intent, lo mantiene ma rimpiazzando i dati extra con il nuovo Intent.
-
-
-| Command | Description |
+| Flag | Descrizione |
 | --- | --- |
-| git status | List all new or modified files |
+| FLAG_CANCEL_CURRENT | se esiste già un pending intent, allora non ne genera uno nuovo |
+| FLAG_IMMUTABLE | il pending intent creato non può venir modificato |
+| FLAG_NO_CREATE | se non esiste il pending intent, al posto che crearlo ritorna `null` |
+| FLAG_ONE_SHOT | Il pending intent può venir usato solo una volta |
+| FLAG_UPDATE_CURRENT | se esiste già il pending intent, lo mantiene ma rimpiazzando i dati extra con il nuovo Intent |
