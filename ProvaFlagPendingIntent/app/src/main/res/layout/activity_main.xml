@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<RadioGroup
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RadioButton android:id="@+id/radio_flag_cancel_current"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/flag_cancel_current"
+        android:onClick="onRadioButtonClicked"/>
+    <RadioButton android:id="@+id/radio_flag_immutable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/flag_immutable"
+        android:onClick="onRadioButtonClicked"/>
+    <RadioButton android:id="@+id/radio_flag_no_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/flag_no_create"
+        android:onClick="onRadioButtonClicked"/>
+    <RadioButton android:id="@+id/radio_flag_one_shot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/flag_one_shot"
+        android:onClick="onRadioButtonClicked"/>
+    <RadioButton android:id="@+id/radio_flag_update_current"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/flag_update_current"
+        android:onClick="onRadioButtonClicked"/>
+</RadioGroup>
+    <EditText
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/time"
+        android:layout_marginTop="23dp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Start Counter"
+        android:id="@+id/ok"
+        android:layout_marginTop="23dp"
+        android:padding="6dp"
+        android:onClick="startAlert" />
+</LinearLayout>

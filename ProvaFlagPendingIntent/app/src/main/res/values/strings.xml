@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ProvaFlagPendingIntent</string>
+    <string name="flag_cancel_current">FLAG_CANCEL_CURRENT</string>
+    <string name="flag_immutable">FLAG IMMUTABLE</string>
+    <string name="flag_no_create">FLAG_NO_CREATE</string>
+    <string name="flag_one_shot">FLAG_ONE_SHOT</string>
+    <string name="flag_update_current">FLAG_UPDATE_CURRENT</string>
+</resources>
