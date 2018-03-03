@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Broadcast</string>
+    <string name="header">A Broadcast Receiver</string>
+    <string name="start">Start Countdown</string>
+    <string name="rb_FLAG_CANCEL_CURRENT">FLAG_CANCEL_CURRENT</string>
+    <string name="rb_FLAG_IMMUTABLE">FLAG_IMMUTABLE</string>
+    <string name="rb_FLAG_NO_CREATE">FLAG_NO_CREATE</string>
+    <string name="rb_FLAG_ONE_SHOT">FLAG_ONE_SHOT</string>
+    <string name="rb_FLAG_UPDATE_CURRENT">FLAG_UPDATE_CURRENT</string>
+</resources>

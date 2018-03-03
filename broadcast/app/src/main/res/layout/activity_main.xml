@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rb_FLAG_CANCEL_CURRENT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_FLAG_CANCEL_CURRENT"
+            android:onClick="clickButton"/>
+        <RadioButton
+            android:id="@+id/rb_FLAG_IMMUTABLE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_FLAG_IMMUTABLE"
+            android:onClick="clickButton"/>
+        <RadioButton
+            android:id="@+id/rb_FLAG_NO_CREATE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_FLAG_NO_CREATE"
+            android:onClick="clickButton"/>
+        <RadioButton
+            android:id="@+id/rb_FLAG_ONE_SHOT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_FLAG_ONE_SHOT"
+            android:onClick="clickButton"/>
+        <RadioButton
+            android:id="@+id/rb_FLAG_UPDATE_CURRENT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_FLAG_UPDATE_CURRENT"
+            android:onClick="clickButton"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="4dp"
+        android:text="@string/header"
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp"
+        />
+
+    <EditText
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/time"
+        android:layout_marginTop="23dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Start Counter"
+        android:id="@+id/ok"
+        android:layout_marginTop="23dp"
+        android:padding="6dp"
+        android:background="@color/yellow"
+        android:onClick="startAlert" />
+
+
+
+</LinearLayout>
+
