@@ -1,26 +1,23 @@
-# AM003_Receiver
+# AM003_Receiver Modificato
 
-In questo esercizio vediamo il secondo (in ordine di esposizione) dei componenti: il `BoradcastReceiver`. Invitiamo subito alla lettura della documentazione: [qui](https://developer.android.com/guide/components/broadcasts.html). Per le API: [qui](https://developer.android.com/reference/android/content/BroadcastReceiver.html).
+Modifica del progetto in Android Studio del professore. Sono stati aggiunti 5 RadioButton che permettono di scegliere quale tipo di flag utilizzare.
 
-## Publish-Subscribe pattern
+## FLAG_CANCEL_CURRENT
 
-E' il modello di riferimento per questa particolare gestione dei messaggi; una sua descrizione tratta da Wikipedia (en): [qui](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern).
+Flag che indica che se esiste un PendigIntent, esso verrà eliminato e sostituito con uno nuovo.
 
-## Manifest-declared receivers
+## FLAG_IMMUTABLE
 
-E' la prima tipologia, esemplificata in questo esempio ([qui](https://developer.android.com/guide/components/broadcasts.html)). Nel nostro caso chiameremo il broadcast addirittura in modo esplicito con un Intent di siffatta specie.
+Controlla che il PendigIntent corrente sia immutabile. Ciò significa che gli argomenti che verranno passati al metodo di invio, utilizzati per riempire i campi mancanti del PendigIntent corrente, verranno ignorati.
 
-## Context-registered receivers
+## FLAG_NO_CREATE
 
-In caso si voglia procedere con una maggiore flessibilità si procede in modo programmatico ([qui](https://developer.android.com/guide/components/broadcasts.html)).
+Restituisce "null" nel caso non esista un PendigIntent, senza andare a crearne un nuovo.
 
-Nel nostro esempio il `BoradcastReceiver` si trova all'interno della stessa app, comunque la comunicazione avviene in questo senso
-```
-i) creazione dell'intent esplicito ---> 
-ii) l'Intent viene consegnato al service di allarme come PendingIntent ---> 
-iii) Android con il suo servizio di allarme rilancia l'intent ed il nostro Broadcast (e non altri) lo riceve.
-```
+## FLAG_ONE_SHOT
 
-## Wrapping di un Intent
+Indica che il PendigIntent corrente può essere utilizzato una sola volta. Nel caso venga utilizzato questo flag, dopo aver richiamato il metodo send(), il PendigIntent verrà eliminato.
 
-Viene utilizzato un `PendingIntent`; per la API: [qui](https://developer.android.com/reference/android/app/PendingIntent.html).
+## FLAG_UPDATE_CURRENT
+
+Nel caso il PendigIntent esista già, quest'ultimo verrà mantenuto, ma i suoi dati verranno sostituiti con i dati del nuovo PendigIntent.
